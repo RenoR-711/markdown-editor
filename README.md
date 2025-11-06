@@ -35,14 +35,14 @@ Ein moderner, schneller und minimaler **Markdown-Editor** mit Live-Vorschau, geb
 
 ### Projekt klonen oder erstellen
 
-git clone https://github.com/RenoR-711/xxx
+git clone https://renor-711.github.io/markdown-editor/
 
 ```bash
 # Neues Projekt erstellen
 npm create vite@latest markdown-editor -- --template react-ts
 cd markdown-editor
 ---
-💡 Verwendung
+## 💡 Verwendung
 
 Links im Editor schreiben → rechts sofortige Vorschau
 
@@ -52,11 +52,11 @@ Dark Mode mit ☀️ / 🌙 umschalten
 
 Inhalt wird automatisch gespeichert
 ---
-🧑‍💻 Autor
+## 🧑‍💻 Autor
 
-Dein Name
-📧 deine.email@example.com
-🌐 deine-website.de
+Name: Renumol Reinhardt
+📧 renu711@hotmail.de
+🌐 https://renor-711.github.io/Portfolio-Website/
 ---
 🪪 Lizenz
 
