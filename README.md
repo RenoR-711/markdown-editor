@@ -10,7 +10,7 @@ Ein moderner, schneller und minimaler **Markdown-Editor** mit Live-Vorschau, geb
 - **Live Markdown Preview** (mit [`react-markdown`](https://github.com/remarkjs/react-markdown))
 - **Autosave** in LocalStorage
 - **Dark / Light Mode**
-- **Toolbar** mit Formatierungsbuttons (Bold, Italic, Code, Quote, List, Divider)
+- **Toolbar** mit Formatierungsbuttons (Bold, Italic, Code, Quote, List, Divider) "in Arbeit"
 - **Responsive Two-Column Layout**
 - **Instant Hot Reloading (HMR)** dank Vite
 - **Markdown-Syntax via GFM** (GitHub-Flavored Markdown)
