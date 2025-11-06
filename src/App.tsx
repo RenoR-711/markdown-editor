@@ -133,7 +133,7 @@ useEffect(() => {
           </button>
           <button
             onClick={redo}
-            className="px-2 py-1 rounded text-slate-800 dark:text-slate-10 hover:bg-slate-200 dark:hover:bg-slate-700"
+            className="px-2 py-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700"
           >
             ↷ Redo
           </button>
@@ -151,50 +151,50 @@ useEffect(() => {
         <button
           onClick={() => insertText("**", "**")}
           title="Fett (Ctrl+B)"
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           **B**
         </button>
         <button
           onClick={() => insertText("_", "_")}
           title="Kursiv (Ctrl+I)"
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           _I_
         </button>
         <button
           onClick={() => insertText("`", "`")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           `Code`
         </button>
         <button
           onClick={() => insertLine("> Zitat")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           &gt; Zitat
         </button>
         <button
           onClick={() => insertLine("- Listeneintrag")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           • Liste
         </button>
         <button
           onClick={() => insertLine("# Überschrift")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           # H1
         </button>
         <button
           onClick={() => insertLine("---")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           ─ Linie
         </button>
         <button
           onClick={() => insertText("[Linktext](https://)", "")}
-          className="px-2 py-1 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         >
           🔗 Link
         </button>
