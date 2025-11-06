@@ -133,7 +133,7 @@ useEffect(() => {
           </button>
           <button
             onClick={redo}
-            className="px-2 py-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700"
+            className="px-2 py-1 rounded text-slate-800 dark:text-slate-10 hover:bg-slate-200 dark:hover:bg-slate-700"
           >
             ↷ Redo
           </button>
