@@ -64,6 +64,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.btn {
+  @apply px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100
+         hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors;
+}
+
 /* Optionale Schrift für Markdown-Vorschau */
 .prose {
   max-width: none;

@@ -151,14 +151,14 @@ useEffect(() => {
         <button
           onClick={() => insertText("**", "**")}
           title="Fett (Ctrl+B)"
-          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="btn"
         >
           **B**
         </button>
         <button
           onClick={() => insertText("_", "_")}
           title="Kursiv (Ctrl+I)"
-          className="px-2 py-1 text-sm rounded text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="btn"
         >
           _I_
         </button>
