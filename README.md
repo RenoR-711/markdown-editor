@@ -18,6 +18,12 @@ Ein moderner, schneller und minimaler **Markdown-Editor** mit Live-Vorschau, geb
 
 ---
 
+## 🖼️ Vorschau
+
+| Dark Mode                         | Light Mode                        |
+| --------------------------------- | --------------------------------- |
+| (./screenshots/dark.png)          | (./screenshots/light.png)         |
+
 ## 🧰 Tech Stack
 
 | Technologie                                                  | Beschreibung                     |
