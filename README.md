@@ -20,9 +20,9 @@ Ein moderner, schneller und minimaler **Markdown-Editor** mit Live-Vorschau, geb
 
 ## 🖼️ Vorschau
 
-| Dark Mode                         | Light Mode                        |
-| --------------------------------- | --------------------------------- |
-| (./screenshots/dark.png)          | (./screenshots/light.png)         |
+| Dark Mode                                   | Light Mode                                   |
+| ------------------------------------------- | -------------------------------------------- |
+| ![Dark Screenshot] (./screenshots/dark.png) | ![Light Screenshot](./screenshots/light.png) |
 
 ## 🧰 Tech Stack
 
