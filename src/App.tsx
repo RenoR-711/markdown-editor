@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function MarkdownEditor() {
   const [text, setText] = useState<string>(
     localStorage.getItem("markdown") ||
-      "# Willkommen 👋\n\nDies ist mein **Markdown Editor**!",
+    "# Willkommen 👋\n\nDies ist mein **Markdown Editor**!",
   );
   const [dark, setDark] = useState<boolean>(
     localStorage.getItem("theme") === "dark",
@@ -81,30 +81,30 @@ export default function MarkdownEditor() {
       );
     });
   };
-const insertBlock = (block: string) => {
-  const textarea = textareaRef.current;
-  if (!textarea) return;
+  const insertBlock = (block: string) => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
 
-  const start = textarea.selectionStart;
-  const end = textarea.selectionEnd;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
 
-  const before = textarea.value.slice(0, start);
-  const after = textarea.value.slice(end);
+    const before = textarea.value.slice(0, start);
+    const after = textarea.value.slice(end);
 
-  const needsLeadingNewline = before.length > 0 && !before.endsWith("\n");
-  const needsTrailingNewline = after.length > 0 && !after.startsWith("\n");
+    const needsLeadingNewline = before.length > 0 && !before.endsWith("\n");
+    const needsTrailingNewline = after.length > 0 && !after.startsWith("\n");
 
-  const insert = `${needsLeadingNewline ? "\n" : ""}${block}${needsTrailingNewline ? "\n" : ""}`;
+    const insert = `${needsLeadingNewline ? "\n" : ""}${block}${needsTrailingNewline ? "\n" : ""}`;
 
-  const newText = before + insert + after;
-  setText(newText);
+    const newText = before + insert + after;
+    setText(newText);
 
-  requestAnimationFrame(() => {
-    textarea.focus();
-    const pos = (before + insert).length;
-    textarea.setSelectionRange(pos, pos);
-  });
-};
+    requestAnimationFrame(() => {
+      textarea.focus();
+      const pos = (before + insert).length;
+      textarea.setSelectionRange(pos, pos);
+    });
+  };
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -148,8 +148,7 @@ const insertBlock = (block: string) => {
       initial={{ opacity: 0, scale: 0.9, y: -20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed inset-0 flex items-center justify-center
-             bg-transparent z-50"
+      className="fixed inset-0 flex items-center justify-center bg-transparent z-50"
     >
       <div
         className="flex flex-col h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300
@@ -184,68 +183,177 @@ const insertBlock = (block: string) => {
 
         {/* Toolbar */}
         <div className="flex flex-wrap gap-1 p-2 border-b dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
+          {/* Überschriften */}
+          <button
+            onClick={() => insertBlock("# Überschrift")}
+            className="btn"
+            title="Überschrift 1"
+          >
+            # H1
+          </button>
+          <button
+            onClick={() => insertBlock("## Überschrift 2")}
+            className="btn"
+            title="Überschrift 2"
+          >
+            ## H2
+          </button>
+          <button
+            onClick={() => insertBlock("### Überschrift 3")}
+            className="btn"
+            title="Überschrift 3"
+          >
+            ### H3
+          </button>
+          {/* Fett */}
           <button
             onClick={() => insertText("**", "**")}
-            title="Fett (Ctrl+B)"
-            className="btn"
+            className="btn" title="Fett (Ctrl+B)"
           >
             **B**
           </button>
+          {/* Kursiv */}
+          <button onClick={() => insertText("_", "_")} className="btn" title="Kursiv (Ctrl+I)">
+            _K_
+          </button>
+
+          {/* Fett und Kursiv */}
           <button
-            onClick={() => insertText("_", "_")}
-            title="Kursiv (Ctrl+I)"
+            onClick={() => insertText("***", "***")}
+            title="Fett und Kursiv (Ctrl+Shift+B)"
             className="btn"
           >
-            _I_
+            ***Fett & Kursiv***
           </button>
-          <button onClick={() => insertText("`", "`")} className="btn">
+          {/*  */}
+          {/*  */}
+          {/*  */}
+          {/*  */}
+          {/*  */}
+
+          <button onClick={() => insertText("`", "`")} className="btn" title="Inline-Code (Ctrl+K)">
             `Code`
           </button>
-          <button onClick={() => insertBlock("> Zitat")} className="btn">
+          <button onClick={() => insertBlock("> Zitat")} className="btn" title="Zitat (Ctrl+Shift+Q)">
             &gt; Zitat
           </button>
-          <button onClick={() => insertBlock("- Listeneintrag")} className="btn">
+          <button
+            onClick={() => insertBlock("- Listeneintrag")}
+            className="btn" title="Liste (- Listeneintrag)"
+          >
             • Liste
           </button>
-          <button onClick={() => insertBlock("# Überschrift")} className="btn">
-            # H1
-          </button>
-          <button onClick={() => insertBlock("---")} className="btn">
+
+          <button onClick={() => insertBlock("---")} className="btn" title="Horizontale Linie (---)">
             ─ Linie
           </button>
           <button
             onClick={() => insertText("[Linktext](https://)", "")}
-            className="btn"
+            className="btn" title="Link ([Linktext](https://))"
           >
             🔗 Link
           </button>
           {/* Weitere Buttons können hier hinzugefügt werden */}
           {/* Beispiel: Bilder, Tabellen, etc. */}
-          <button onClick={() => insertText("![Alt-Text](https://)", "")} className="btn">
+          <button
+            onClick={() => insertText("![Alt-Text](https://)", "")}
+            className="btn" title="Bild (![Alt-Text](https://))"
+          >
             🖼️ Bild
           </button>
-          <button onClick={() => insertText("```language\nCode\n```", "")} className="btn"
-            title="Codeblock (```language\nCode\n```)">
+          <button
+            onClick={() => insertText("```language\nCode\n```", "")}
+            className="btn"
+            title="Codeblock (```language\nCode\n```)"
+          >
             🖥️ Codeblock
           </button>
-          <button onClick={() => insertText("> [!NOTE]\n> Hinweistext\n", "")} className="btn"
-            title="Hinweisblock (> [!NOTE]\n> Hinweistext)">
+          <button
+            onClick={() => insertText("> [!NOTE]\n> Hinweistext\n", "")}
+            className="btn"
+            title="Hinweisblock (> [!NOTE]\n> Hinweistext)"
+          >
             📝 Hinweis
           </button>
-          <button onClick={() => insertText("| Spalte 1 | Spalte 2 |\n| --- | --- |\n| Inhalt 1 | Inhalt 2 |\n", "")} className="btn"
+          <button
+            onClick={() =>
+              insertText(
+                "| Spalte 1 | Spalte 2 |\n| --- | --- |\n| Inhalt 1 | Inhalt 2 |\n",
+                "",
+              )
+            }
+            className="btn" title="Tabelle"
           >
             📊 Tabelle
           </button>
-          <button onClick={() => insertText("- [ ] Aufgabe\n", "")} className="btn"
+          <button
+            onClick={() => insertText("- [ ] Aufgabe\n", "")}
+            className="btn" title="Aufgabe"
           >
             ✅ Aufgabe
           </button>
-          
-          <button onClick={() => insertText("- [x] Erledigt\n", "")} className="btn"
-          title="Erledigte Aufgabe">
+          {/* Erledigte Aufgabe */}
+          <button
+            onClick={() => insertText("- [x] Erledigt\n", "")}
+            className="btn"
+            title="Erledigte Aufgabe"
+          >
             ✅ Erledigt
           </button>
-          
+          {/* Fußnote */}
+          <button
+            onClick={() => insertBlock("[^1]\n\n[^1]: Deine Fußnote hier")}
+            className="btn" title="Fußnote"
+          >
+            🔎 Fußnote
+          </button>
+          {/* Definition List */}
+          <button
+            onClick={() =>
+              insertText("Begriff\n: Definition des Begriffs\n", "")
+            }
+            className="btn" title="Definition List"
+          >
+            📖 Definition
+          </button>
+          {/* Strikethrough */}
+          <button
+            onClick={() => insertText("~~Durchgestrichen~~", "")}
+            className="btn" title="Durchgestrichen"
+          >
+            ~~Durchgestrichen~~
+          </button>
+
+          {/* Emoji */}
+          <button onClick={() => insertText("😊", "")} className="btn" title="Emoji">
+            😊 Emoji
+          </button>
+
+          {/* Highlight */}
+          <button
+            onClick={() => insertText("==Hervorhebung==", "")}
+            className="btn" title="Hervorhebung"
+          >
+            ==Hervorhebung==
+          </button>
+
+          {/* Subscript*/}
+          <button
+            onClick={() => insertText("H~2~O", "")}
+            className="btn"
+            title="Tiefgestellt (H~2~O)"
+          >
+            H~2~O
+          </button>
+
+          {/* Superscript */}
+          <button
+            onClick={() => insertText("E=mc^2^", "")}
+            className="btn"
+            title="Hochgestellt (E=mc^2^)"
+          >
+            E=mc^2^
+          </button>
         </div>
 
         {/* Inhalt mit verstellbarer Trennlinie */}
