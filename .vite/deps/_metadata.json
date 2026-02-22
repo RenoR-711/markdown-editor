@@ -2,7 +2,69 @@
   "hash": "d601ec13",
   "configHash": "733faafd",
   "lockfileHash": "b16a2eb2",
+<<<<<<< Updated upstream
   "browserHash": "69e68e14",
   "optimized": {},
   "chunks": {}
+=======
+  "browserHash": "804ebca9",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "418bc94c",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2b28d8a2",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2e5cc255",
+      "needsInterop": true
+    },
+    "react-markdown": {
+      "src": "../../node_modules/react-markdown/index.js",
+      "file": "react-markdown.js",
+      "fileHash": "d5d24293",
+      "needsInterop": false
+    },
+    "remark-gfm": {
+      "src": "../../node_modules/remark-gfm/index.js",
+      "file": "remark-gfm.js",
+      "fileHash": "330f0d8e",
+      "needsInterop": false
+    },
+    "react-resizable-panels": {
+      "src": "../../node_modules/react-resizable-panels/dist/react-resizable-panels.browser.development.js",
+      "file": "react-resizable-panels.js",
+      "fileHash": "9270e196",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "e8b707dd",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-XLTDOGXH": {
+      "file": "chunk-XLTDOGXH.js"
+    },
+    "chunk-R3OQ3HAY": {
+      "file": "chunk-R3OQ3HAY.js"
+    },
+    "chunk-ULSRCYB6": {
+      "file": "chunk-ULSRCYB6.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+>>>>>>> Stashed changes
 }
