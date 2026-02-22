@@ -196,8 +196,8 @@ export default function MarkdownEditor() {
           >
             🔗 Link
           </button>
-          /* Weitere Buttons können hier hinzugefügt werden */
-          /* Beispiel: Bilder, Tabellen, etc. * /
+          {/* Weitere Buttons können hier hinzugefügt werden */}
+          {/* Beispiel: Bilder, Tabellen, etc. */}
           <button onClick={() => insertText("![Alt-Text](https://)", "")} className="btn">
             🖼️ Bild
           </button>
