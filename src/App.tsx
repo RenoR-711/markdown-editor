@@ -81,7 +81,30 @@ export default function MarkdownEditor() {
       );
     });
   };
-  const insertLine = (line: string) => setText((t) => t + `\n${line}\n`);
+const insertBlock = (block: string) => {
+  const textarea = textareaRef.current;
+  if (!textarea) return;
+
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+
+  const before = textarea.value.slice(0, start);
+  const after = textarea.value.slice(end);
+
+  const needsLeadingNewline = before.length > 0 && !before.endsWith("\n");
+  const needsTrailingNewline = after.length > 0 && !after.startsWith("\n");
+
+  const insert = `${needsLeadingNewline ? "\n" : ""}${block}${needsTrailingNewline ? "\n" : ""}`;
+
+  const newText = before + insert + after;
+  setText(newText);
+
+  requestAnimationFrame(() => {
+    textarea.focus();
+    const pos = (before + insert).length;
+    textarea.setSelectionRange(pos, pos);
+  });
+};
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -113,7 +136,7 @@ export default function MarkdownEditor() {
     };
     globalThis.addEventListener("keydown", handleKey);
     return () => globalThis.removeEventListener("keydown", handleKey);
-  });
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     isUserInput.current = true;
@@ -178,16 +201,16 @@ export default function MarkdownEditor() {
           <button onClick={() => insertText("`", "`")} className="btn">
             `Code`
           </button>
-          <button onClick={() => insertLine("> Zitat")} className="btn">
+          <button onClick={() => insertBlock("> Zitat")} className="btn">
             &gt; Zitat
           </button>
-          <button onClick={() => insertLine("- Listeneintrag")} className="btn">
+          <button onClick={() => insertBlock("- Listeneintrag")} className="btn">
             • Liste
           </button>
-          <button onClick={() => insertLine("# Überschrift")} className="btn">
+          <button onClick={() => insertBlock("# Überschrift")} className="btn">
             # H1
           </button>
-          <button onClick={() => insertLine("---")} className="btn">
+          <button onClick={() => insertBlock("---")} className="btn">
             ─ Linie
           </button>
           <button
@@ -201,20 +224,25 @@ export default function MarkdownEditor() {
           <button onClick={() => insertText("![Alt-Text](https://)", "")} className="btn">
             🖼️ Bild
           </button>
-          <button onClick={() => insertText("```language\nCode\n```", "")} className="btn">
+          <button onClick={() => insertText("```language\nCode\n```", "")} className="btn"
+            title="Codeblock (```language\nCode\n```)">
             🖥️ Codeblock
           </button>
-          <button onClick={() => insertText("> [!NOTE]\n> Hinweistext\n", "")} className="btn">
+          <button onClick={() => insertText("> [!NOTE]\n> Hinweistext\n", "")} className="btn"
+            title="Hinweisblock (> [!NOTE]\n> Hinweistext)">
             📝 Hinweis
           </button>
-          <button onClick={() => insertText("| Spalte 1 | Spalte 2 |\n| --- | --- |\n| Inhalt 1 | Inhalt 2 |\n", "")} className="btn">
+          <button onClick={() => insertText("| Spalte 1 | Spalte 2 |\n| --- | --- |\n| Inhalt 1 | Inhalt 2 |\n", "")} className="btn"
+          >
             📊 Tabelle
           </button>
-          <button onClick={() => insertText("- [ ] Aufgabe\n", "")} className="btn">
+          <button onClick={() => insertText("- [ ] Aufgabe\n", "")} className="btn"
+          >
             ✅ Aufgabe
           </button>
           
-          <button onClick={() => insertText("- [x] Erledigt\n", "")} className="btn">
+          <button onClick={() => insertText("- [x] Erledigt\n", "")} className="btn"
+          title="Erledigte Aufgabe">
             ✅ Erledigt
           </button>
           
