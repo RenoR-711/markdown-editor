@@ -4,14 +4,13 @@ import remarkGfm from "remark-gfm";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { motion } from "framer-motion";
 
-
 export default function MarkdownEditor() {
   const [text, setText] = useState<string>(
     localStorage.getItem("markdown") ||
-    "# Willkommen 👋\n\nDies ist mein **Markdown Editor**!"
+      "# Willkommen 👋\n\nDies ist mein **Markdown Editor**!",
   );
   const [dark, setDark] = useState<boolean>(
-    localStorage.getItem("theme") === "dark"
+    localStorage.getItem("theme") === "dark",
   );
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -78,7 +77,7 @@ export default function MarkdownEditor() {
       textarea.focus();
       textarea.setSelectionRange(
         start + before.length,
-        start + before.length + selected.length
+        start + before.length + selected.length,
       );
     });
   };
@@ -143,9 +142,7 @@ export default function MarkdownEditor() {
             <button onClick={redo} className="btn">
               ↷ Redo
             </button>
-            <button
-              onClick={() => setDark((d) => !d)}
-              className="btn">
+            <button onClick={() => setDark((d) => !d)} className="btn">
               {dark ? "☀️" : "🌙"}
             </button>
             <button
@@ -199,6 +196,28 @@ export default function MarkdownEditor() {
           >
             🔗 Link
           </button>
+          /* Weitere Buttons können hier hinzugefügt werden */
+          /* Beispiel: Bilder, Tabellen, etc. * /
+          <button onClick={() => insertText("![Alt-Text](https://)", "")} className="btn">
+            🖼️ Bild
+          </button>
+          <button onClick={() => insertText("```language\nCode\n```", "")} className="btn">
+            🖥️ Codeblock
+          </button>
+          <button onClick={() => insertText("> [!NOTE]\n> Hinweistext\n", "")} className="btn">
+            📝 Hinweis
+          </button>
+          <button onClick={() => insertText("| Spalte 1 | Spalte 2 |\n| --- | --- |\n| Inhalt 1 | Inhalt 2 |\n", "")} className="btn">
+            📊 Tabelle
+          </button>
+          <button onClick={() => insertText("- [ ] Aufgabe\n", "")} className="btn">
+            ✅ Aufgabe
+          </button>
+          
+          <button onClick={() => insertText("- [x] Erledigt\n", "")} className="btn">
+            ✅ Erledigt
+          </button>
+          
         </div>
 
         {/* Inhalt mit verstellbarer Trennlinie */}
