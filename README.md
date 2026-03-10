@@ -41,7 +41,7 @@ Ein moderner, schneller und minimaler **Markdown-Editor** mit Live-Vorschau, geb
 
 ### Projekt klonen oder erstellen
 
-git clone https://renor-711.github.io/markdown-editor/
+git clone https://github.com/RenoR-711/markdown-editor.git
 
 ```bash
 # Neues Projekt erstellen
